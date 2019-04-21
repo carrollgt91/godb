@@ -1,1 +1,1 @@
-fswatch  -e ".*" -i "\\.go$" -o ./ | xargs -n1 -I{} ./run
+fswatch  -er ".*" -i "\\.go$" -o ./ | xargs -n1 -I{} go test
