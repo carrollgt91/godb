@@ -7,16 +7,15 @@ import (
 )
 
 /*
-	InputBuffer is a wrapper around taking input from the user via
-	the command prompt.
+InputBuffer is a wrapper around taking input from the user via
+the command prompt.
 */
 type InputBuffer struct {
-	Buffer string
 	reader *bufio.Reader
 }
 
 /*
-	NewInputBuffer creates a new InputBuffer that reads from Stdin
+NewInputBuffer creates a new InputBuffer that reads from Stdin
 */
 func NewInputBuffer() *InputBuffer {
 	ib := &InputBuffer{
@@ -27,7 +26,7 @@ func NewInputBuffer() *InputBuffer {
 }
 
 /*
-	ReadLine reads a single line of user input and returns it, or an error if one exists.
+ReadLine reads a single line of user input and returns it, or an error if one exists.
 */
 func (ib *InputBuffer) ReadLine() (string, error) {
 	text, err := ib.reader.ReadString('\n')
