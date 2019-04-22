@@ -24,6 +24,11 @@ type Statement struct {
 	Type StatementType
 }
 
+/*
+PrepareStatement takes the raw text passed by a user query and parses it
+into a statement, extracting relevant parameters and storing them in the
+returned Statement.
+*/
 func PrepareStatement(text string) (*Statement, error) {
 	lcaseText := strings.ToLower(text)
 	if strings.Contains(lcaseText, "insert") {

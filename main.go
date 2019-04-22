@@ -23,13 +23,20 @@ func main() {
 		if text[0] == '.' {
 			err := DoMetaCommand(text)
 			if err != nil {
-				fmt.Printf("Error handling metacommand: %s\n", err)
+				fmt.Printf("Error handling metacommand: %v\n", err)
 			}
 
 			continue
 		}
 
 		// handle SQL statements
-		fmt.Printf("Error: Command Not recognized %s\n", text)
+		statement, err := PrepareStatement(text)
+
+		if err != nil {
+			fmt.Printf("Error preparing statement: %v\n", err)
+			continue
+		}
+
+		fmt.Printf("Executing statement of type %v\n", statement.Type)
 	}
 }
